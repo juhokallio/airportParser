@@ -18,7 +18,8 @@ class TextCollocation(unittest.TestCase):
 
     INVALID_SENTENCES = [
         "does that flightss include a meal",
-        "that does that flight include a meal"
+        "that does that flight include a meal",
+        "she could want that flight breakfast meal"
     ]
 
     grammar = data.load('grammar.cfg')

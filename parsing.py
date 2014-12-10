@@ -2,13 +2,8 @@ __author__ = 'juka'
 
 from nltk import data
 from nltk.parse import RecursiveDescentParser
+from nltk.parse.generate import generate
 import unittest
-
-
-def get_parser():
-    grammar = data.load('grammar.cfg')
-
-    return RecursiveDescentParser(grammar)
 
 
 class TextCollocation(unittest.TestCase):
@@ -26,11 +21,12 @@ class TextCollocation(unittest.TestCase):
         "that does that flight include a meal"
     ]
 
-    rd = get_parser()
+    grammar = data.load('grammar.cfg')
+    parser = RecursiveDescentParser(grammar)
 
     def assert_valid(self, sentence):
         try:
-            parsed = self.rd.parse(sentence.split())
+            parsed = self.parser.parse(sentence.split())
             print(sentence)
             print(next(parsed))
         except Exception:
@@ -38,7 +34,7 @@ class TextCollocation(unittest.TestCase):
 
     def assert_invalid(self, sentence):
         with self.assertRaises(Exception, msg="Parsed the invalid sentence \"{}\"".format(sentence)):
-            parsed = self.rd.parse(sentence.split())
+            parsed = self.parser.parse(sentence.split())
             print(next(parsed))
 
     def test_parse(self):
@@ -46,3 +42,6 @@ class TextCollocation(unittest.TestCase):
             self.assert_valid(s)
         for s in self.INVALID_SENTENCES:
             self.assert_invalid(s)
+
+    for sentence in generate(grammar, n=100):
+        print(' '.join(sentence))

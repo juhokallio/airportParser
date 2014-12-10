@@ -1,6 +1,8 @@
 S -> NP[NUM=?n] VP[NUM=?n]
+S -> NP[NUM=?n] Passive[NUM=?n]
 S -> Aux NP VP
 S -> VP
+S -> IP
 
 NP[NUM=?n] -> Pronoun[NUM=?n]
 NP -> Proper-Noun
@@ -13,16 +15,19 @@ Noun[NUM=sg] -> 'flight'
 Noun[NUM=pl] -> 'flights'
 Noun[NUM=sg] -> 'meal'
 Noun[NUM=sg] -> 'breakfast'
+Noun[NUM=sg] -> 'airport'
+Noun[NUM=sg] -> 'ticket'
 
 VP[NUM=?n] -> Verb[NUM=?n]
-VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=pl]
-VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=pl] NP
+VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres]
+VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP PP
 VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
 
 PP -> Preposition NP
+PP -> Preposition '_time_'
 
 Det[NUM=sg] -> 'that'
 Det[NUM=sg] -> 'this'
@@ -33,6 +38,9 @@ Modal -> 'could'
 Modal[NUM=pl] -> 'want' 'to'
 Modal[NUM=sg] -> 'wants' 'to'
 Modal -> 'will'
+Modal -> 'would'
+Modal -> 'may'
+Modal[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres] 'to'
 
 Verb[NUM=pl] -> 'want'
 Verb[NUM=sg] -> 'wants'
@@ -42,10 +50,22 @@ Verb[NUM=pl] -> 'sit'
 Verb[NUM=pl] -> 'include'
 Verb[NUM=pl] -> 'prefer'
 Verb[NUM=pl] -> 'book'
+Verb[NUM=inf] -> 'book'
 Verb[NUM=sg] -> 'books'
 Verb[NUM=sg] -> 'is'
+Verb[NUM=inf] -> 'be'
 Verb[NUM=pl] -> 'are'
 Verb[NUM=pl] -> 'like'
+Verb[NUM=inf] -> 'like'
+Verb[NUM=inf] -> 'serve'
+Verb[NUM=inf] -> 'reserve'
+Verb[NUM=inf] -> 'arrive'
+Verb[NUM=pl] -> 'arrive'
+Verb[NUM=sg] -> 'arrives'
+Verb[TENSE=past] -> 'reserved'
+Verb[TENSE=past] -> 'closed'
+
+Passive[NUM=sg] -> 'is' Verb[TENSE=past]
 
 Pronoun[NUM=sg] -> 'she'
 Pronoun[NUM=sg] -> 'he'
@@ -54,9 +74,17 @@ Pronoun -> 'me'
 Pronoun -> 'you'
 Pronoun -> 'we'
 Pronoun -> 'they'
-Proper-Noun -> 'Atlanta'
-Proper-Noun -> 'Toronto'
+
+Proper-Noun -> 'atlanta'
+Proper-Noun -> 'toronto'
+
 Preposition -> 'from'
 Preposition -> 'to'
+Preposition -> 'at'
+
 Aux -> 'does'
 Aux -> Modal
+
+Int -> 'how'
+
+IP -> Int Modal[NUM=?n] NP[NUM=?n] VP[NUM=inf]

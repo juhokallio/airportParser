@@ -1,7 +1,6 @@
 __author__ = 'juka'
 
 from nltk import data
-from nltk.parse import RecursiveDescentParser
 from nltk.parse.generate import generate
 from nltk import load_parser
 import unittest
@@ -16,6 +15,16 @@ class TextCollocation(unittest.TestCase):
         "does that flight include a meal",
         "does that flight include a breakfast",
         "he books that flight",
+        "i would like",
+        "i would like to book",
+        "i would like to book a flight to atlanta",
+        "how may i serve",
+        "how may i serve you",
+        "the airport is closed",
+        "i would like to reserve a ticket",
+        "the flight arrives",
+        # _time_ is used to present any time like value
+        "the flight arrives at _time_",
     ]
 
     INVALID_SENTENCES = [
@@ -24,7 +33,11 @@ class TextCollocation(unittest.TestCase):
         "she could want that flight breakfast meal",
         "he book that flight",
         "she could wants me",
-        "she want to book"
+        "she want to book",
+        "she could flights to book",
+        "she want to book to like",
+        "she could closed to book",
+        "i would like to reserved a ticket",
     ]
 
     grammar = data.load('grammar.fcfg')

@@ -15,12 +15,12 @@ Noun[NUM=sg] -> 'meal'
 Noun[NUM=sg] -> 'breakfast'
 
 VP[NUM=?n] -> Verb[NUM=?n]
-VP -> Modal Verb[NUM=pl]
-VP -> Modal Verb[NUM=pl] NP
+VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=pl]
+VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=pl] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP PP
 VP[NUM=?n] -> Verb[NUM=?n] PP
-VP -> VP PP
+VP[NUM=?n] -> VP[NUM=?n] PP
 
 PP -> Preposition NP
 
@@ -31,6 +31,7 @@ Det -> 'the'
 
 Modal -> 'could'
 Modal[NUM=pl] -> 'want' 'to'
+Modal[NUM=sg] -> 'wants' 'to'
 Modal -> 'will'
 
 Verb[NUM=pl] -> 'want'

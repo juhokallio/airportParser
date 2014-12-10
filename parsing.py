@@ -23,7 +23,8 @@ class TextCollocation(unittest.TestCase):
         "that does that flight include a meal",
         "she could want that flight breakfast meal",
         "he book that flight",
-        "she could wants me"
+        "she could wants me",
+        "she want to book"
     ]
 
     grammar = data.load('grammar.fcfg')
@@ -49,4 +50,5 @@ class TextCollocation(unittest.TestCase):
             self.assert_invalid(s)
 
     for sentence in generate(grammar, n=100):
-        print(' '.join(sentence))
+        if(parser.parse_one(sentence)):
+            print(' '.join(sentence))

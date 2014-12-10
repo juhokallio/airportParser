@@ -13,6 +13,10 @@ def get_parser():
 
 class TextCollocation(unittest.TestCase):
     VALID_SENTENCES = [
+        "i will book",
+        "i will book a flight",
+        "could you book a flight",
+        "i could book a flight",
         "does that flight include a meal",
         "does that flight include a breakfast"
     ]
@@ -27,13 +31,15 @@ class TextCollocation(unittest.TestCase):
     def assert_valid(self, sentence):
         try:
             parsed = self.rd.parse(sentence.split())
-            next(parsed)
-        except ValueError:
+            print(sentence)
+            print(next(parsed))
+        except Exception:
             self.fail("Couldn't parse \"{}\"".format(sentence))
 
     def assert_invalid(self, sentence):
-        with self.assertRaises(ValueError, msg="Parsed the invalid sentence \"{}\"".format(sentence)):
-            self.rd.parse(sentence.split())
+        with self.assertRaises(Exception, msg="Parsed the invalid sentence \"{}\"".format(sentence)):
+            parsed = self.rd.parse(sentence.split())
+            print(next(parsed))
 
     def test_parse(self):
         for s in self.VALID_SENTENCES:

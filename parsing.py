@@ -3,6 +3,7 @@ __author__ = 'juka'
 from nltk import data
 from nltk.parse import RecursiveDescentParser
 from nltk.parse.generate import generate
+from nltk import load_parser
 import unittest
 
 
@@ -13,17 +14,20 @@ class TextCollocation(unittest.TestCase):
         "could you book a flight",
         "i could book a flight",
         "does that flight include a meal",
-        "does that flight include a breakfast"
+        "does that flight include a breakfast",
+        "he books that flight",
     ]
 
     INVALID_SENTENCES = [
         "does that flightss include a meal",
         "that does that flight include a meal",
-        "she could want that flight breakfast meal"
+        "she could want that flight breakfast meal",
+        "he book that flight",
+        "she could wants me"
     ]
 
-    grammar = data.load('grammar.cfg')
-    parser = RecursiveDescentParser(grammar)
+    grammar = data.load('grammar.fcfg')
+    parser = load_parser('grammar.fcfg')
 
     def assert_valid(self, sentence):
         try:

@@ -1,0 +1,61 @@
+S -> NP[NUM=?n] VP[NUM=?n]
+S -> Aux NP VP
+S -> VP
+
+NP[NUM=?n] -> Pronoun[NUM=?n]
+NP -> Proper-Noun
+NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
+
+Nominal[NUM=?n] -> Noun[NUM=?n]
+
+Noun[NUM=sg] -> 'cat'
+Noun[NUM=sg] -> 'flight'
+Noun[NUM=pl] -> 'flights'
+Noun[NUM=sg] -> 'meal'
+Noun[NUM=sg] -> 'breakfast'
+
+VP[NUM=?n] -> Verb[NUM=?n]
+VP -> Modal Verb[NUM=pl]
+VP -> Modal Verb[NUM=pl] NP
+VP[NUM=?n] -> Verb[NUM=?n] NP
+VP[NUM=?n] -> Verb[NUM=?n] NP PP
+VP[NUM=?n] -> Verb[NUM=?n] PP
+VP -> VP PP
+
+PP -> Preposition NP
+
+Det[NUM=sg] -> 'that'
+Det[NUM=sg] -> 'this'
+Det[NUM=sg] -> 'a'
+Det -> 'the'
+
+Modal -> 'could'
+Modal[NUM=pl] -> 'want' 'to'
+Modal -> 'will'
+
+Verb[NUM=pl] -> 'want'
+Verb[NUM=sg] -> 'wants'
+Verb[NUM=pl] -> 'flight'
+Verb[NUM=sg] -> 'flights'
+Verb[NUM=pl] -> 'sit'
+Verb[NUM=pl] -> 'include'
+Verb[NUM=pl] -> 'prefer'
+Verb[NUM=pl] -> 'book'
+Verb[NUM=sg] -> 'books'
+Verb[NUM=sg] -> 'is'
+Verb[NUM=pl] -> 'are'
+Verb[NUM=pl] -> 'like'
+
+Pronoun[NUM=sg] -> 'she'
+Pronoun[NUM=sg] -> 'he'
+Pronoun -> 'i'
+Pronoun -> 'me'
+Pronoun -> 'you'
+Pronoun -> 'we'
+Pronoun -> 'they'
+Proper-Noun -> 'Atlanta'
+Proper-Noun -> 'Toronto'
+Preposition -> 'from'
+Preposition -> 'to'
+Aux -> 'does'
+Aux -> Modal

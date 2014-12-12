@@ -8,6 +8,7 @@ S -> DummySubject Verb[NUM=?n, SPECIAL=be] NP[NUM=?n]
 NP[NUM=?n] -> Pronoun[NUM=?n]
 NP -> Proper-Noun
 NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
+NP[NUM=?n] -> Nominal[NUM=?n]
 NP[NUM=?n] -> NP[NUM=?n] PP
 
 Nominal[NUM=?n] -> Noun[NUM=?n]

@@ -7,6 +7,7 @@ S -> IP
 NP[NUM=?n] -> Pronoun[NUM=?n]
 NP -> Proper-Noun
 NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
+NP[NUM=?n] -> NP[NUM=?n] PP
 
 Nominal[NUM=?n] -> Noun[NUM=?n]
 
@@ -22,7 +23,6 @@ VP[NUM=?n] -> Verb[NUM=?n]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP
-VP[NUM=?n] -> Verb[NUM=?n] NP PP
 VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
 
@@ -60,8 +60,12 @@ Verb[NUM=inf] -> 'like'
 Verb[NUM=inf] -> 'serve'
 Verb[NUM=inf] -> 'reserve'
 Verb[NUM=inf] -> 'arrive'
+Verb[NUM=inf] -> 'arrive'
 Verb[NUM=pl] -> 'arrive'
 Verb[NUM=sg] -> 'arrives'
+Verb[NUM=inf] -> 'depart'
+Verb[NUM=pl] -> 'depart'
+Verb[NUM=sg] -> 'departs'
 Verb[TENSE=past] -> 'reserved'
 Verb[TENSE=past] -> 'closed'
 
@@ -77,6 +81,7 @@ Pronoun -> 'they'
 
 Proper-Noun -> 'atlanta'
 Proper-Noun -> 'toronto'
+Proper-Noun -> 'frankfurt'
 
 Preposition -> 'from'
 Preposition -> 'to'

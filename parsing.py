@@ -25,6 +25,8 @@ class TextCollocation(unittest.TestCase):
         "the flight arrives",
         # _time_ is used to present any time like value
         "the flight arrives at _time_",
+        "the flight departs at _time_",
+        "the flight to frankfurt departs at _time_",
     ]
 
     INVALID_SENTENCES = [

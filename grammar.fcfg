@@ -3,6 +3,7 @@ S -> NP[NUM=?n] Passive[NUM=?n]
 S -> Aux NP VP
 S -> VP
 S -> IP
+S -> DummySubject Verb[NUM=?n, SPECIAL=be] NP[NUM=?n]
 
 NP[NUM=?n] -> Pronoun[NUM=?n]
 NP -> Proper-Noun
@@ -10,6 +11,7 @@ NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
 NP[NUM=?n] -> NP[NUM=?n] PP
 
 Nominal[NUM=?n] -> Noun[NUM=?n]
+Nominal[NUM=?n] -> Noun Noun[NUM=?n]
 
 Noun[NUM=sg] -> 'cat'
 Noun[NUM=sg] -> 'flight'
@@ -18,6 +20,9 @@ Noun[NUM=sg] -> 'meal'
 Noun[NUM=sg] -> 'breakfast'
 Noun[NUM=sg] -> 'airport'
 Noun[NUM=sg] -> 'ticket'
+Noun[NUM=sg] -> 'bus'
+Noun[NUM=pl] -> 'transitions'
+Noun[NUM=sg] -> 'transition'
 
 VP[NUM=?n] -> Verb[NUM=?n]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres]
@@ -28,6 +33,8 @@ VP[NUM=?n] -> VP[NUM=?n] PP
 
 PP -> Preposition NP
 PP -> Preposition '_time_'
+
+DummySubject -> 'there'
 
 Det[NUM=sg] -> 'that'
 Det[NUM=sg] -> 'this'
@@ -52,9 +59,6 @@ Verb[NUM=pl] -> 'prefer'
 Verb[NUM=pl] -> 'book'
 Verb[NUM=inf] -> 'book'
 Verb[NUM=sg] -> 'books'
-Verb[NUM=sg] -> 'is'
-Verb[NUM=inf] -> 'be'
-Verb[NUM=pl] -> 'are'
 Verb[NUM=pl] -> 'like'
 Verb[NUM=inf] -> 'like'
 Verb[NUM=inf] -> 'serve'
@@ -68,6 +72,11 @@ Verb[NUM=pl] -> 'depart'
 Verb[NUM=sg] -> 'departs'
 Verb[TENSE=past] -> 'reserved'
 Verb[TENSE=past] -> 'closed'
+Verb[NUM=?n, SPECIAL=be] -> Be[NUM=?n]
+
+Be[NUM=sg] -> 'is'
+Be[NUM=inf] -> 'be'
+Be[NUM=pl] -> 'are'
 
 Passive[NUM=sg] -> 'is' Verb[TENSE=past]
 

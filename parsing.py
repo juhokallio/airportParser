@@ -27,6 +27,9 @@ class TextCollocation(unittest.TestCase):
         "the flight arrives at _time_",
         "the flight departs at _time_",
         "the flight to frankfurt departs at _time_",
+        "the flight from frankfurt arrives at _time_",
+        "there is a bus",
+        "there is a bus transition",
     ]
 
     INVALID_SENTENCES = [
@@ -40,6 +43,7 @@ class TextCollocation(unittest.TestCase):
         "she want to book to like",
         "she could closed to book",
         "i would like to reserved a ticket",
+        "the flight from frankfurt arrive at _time_",
     ]
 
     grammar = data.load('grammar.fcfg')

@@ -24,6 +24,8 @@ Noun[NUM=sg] -> 'ticket'
 Noun[NUM=sg] -> 'bus'
 Noun[NUM=pl] -> 'transitions'
 Noun[NUM=sg] -> 'transition'
+Noun[NUM=sg] -> 'plane'
+Noun[NUM=pl] -> 'planes'
 
 VP[NUM=?n] -> Verb[NUM=?n]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres]
@@ -34,6 +36,7 @@ VP[NUM=?n] -> VP[NUM=?n] PP
 VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] Verb[NUM=ing]
 
 PP -> Preposition NP
+PP -> Preposition VP[NUM=inf]
 PP -> Preposition '_time_'
 
 DummySubject -> 'there'
@@ -68,13 +71,19 @@ Verb[NUM=inf] -> 'serve'
 Verb[NUM=inf] -> 'reserve'
 Verb[NUM=inf] -> 'arrive'
 Verb[NUM=inf] -> 'arrive'
+Verb[NUM=inf] -> 'crash'
 Verb[NUM=pl] -> 'arrive'
 Verb[NUM=sg] -> 'arrives'
 Verb[NUM=inf] -> 'depart'
 Verb[NUM=pl] -> 'depart'
 Verb[NUM=sg] -> 'departs'
-Verb[TENSE=past] -> 'reserved'
-Verb[TENSE=past] -> 'closed'
+Verb[NUM=ing] -> 'departing'
+Verb[NUM=inf] -> 'go'
+Verb[NUM=sg] -> 'go'
+Verb[NUM=pl] -> 'goes'
+Verb[NUM=ing] -> 'going'
+Verb[NUM=past] -> 'reserved'
+Verb[NUM=past] -> 'closed'
 Verb[NUM=?n, SPECIAL=be, PERSON=?m] -> Be[NUM=?n, PERSON=?m]
 
 Be[NUM=sg, PERSON=3] -> 'is'
@@ -83,15 +92,15 @@ Be[NUM=sg, PERSON=2] -> 'are'
 Be[NUM=pl] -> 'are'
 Be[NUM=sg, PERSON=1] -> 'am'
 
-Passive[NUM=sg] -> 'is' Verb[TENSE=past]
+Passive[NUM=sg] -> 'is' Verb[NUM=past]
 
 Pronoun[NUM=sg, PERSON=3] -> 'she'
 Pronoun[NUM=sg, PERSON=3] -> 'he'
 Pronoun[NUM=sg, PERSON=1] -> 'i'
 Pronoun[PERSON=1] -> 'me'
 Pronoun[PERSON=2] -> 'you'
-Pronoun[PERSON=1] -> 'we'
-Pronoun[PERSON=3] -> 'they'
+Pronoun[NUM=pl, PERSON=1] -> 'we'
+Pronoun[NUM=pl, PERSON=3] -> 'they'
 
 Proper-Noun -> 'atlanta'
 Proper-Noun -> 'toronto'

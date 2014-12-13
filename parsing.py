@@ -33,6 +33,8 @@ class TextCollocation(unittest.TestCase):
         "there are bus transitions",
         "i am flying",
         "where are you flying",
+        "the plane is flying",
+        "the plane is going to crash",
     ]
 
     INVALID_SENTENCES = [

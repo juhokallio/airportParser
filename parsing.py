@@ -44,6 +44,10 @@ class TextCollocation(unittest.TestCase):
         "the air plane is white",
         "the toilet of the plane is out of use",
         "the plane has the autopilot on",
+        "cats are allowed",
+        "cats are allowed in the plane",
+        "no cats are allowed in the plane",
+        "there is a bird inside the air plane",
     ]
 
     INVALID_SENTENCES = [

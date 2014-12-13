@@ -1,5 +1,4 @@
 S -> NP[NUM=?n, PERSON=?m] VP[NUM=?n, PERSON=?m]
-S -> NP[NUM=?n] Passive[NUM=?n]
 S -> Aux NP VP
 S -> VP
 S -> IP
@@ -12,6 +11,7 @@ NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
 NP[NUM=?n] -> Nominal[NUM=?n]
 NP[NUM=?n] -> NP[NUM=?n] PP
 NP[NUM=sg] -> AP
+NP[NUM=?n] -> Neg NP[NUM=?n]
 
 AP -> Adj
 
@@ -44,6 +44,8 @@ Noun[NUM=sg] -> 'use'
 Noun[NUM=pl] -> 'uses'
 Noun[NUM=sg] -> 'autopilot'
 Noun[NUM=pl] -> 'autopilots'
+Noun[NUM=sg] -> 'bird'
+Noun[NUM=pl] -> 'birds'
 
 VP[NUM=?n] -> Verb[NUM=?n]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf]
@@ -52,6 +54,7 @@ VP[NUM=?n] -> Verb[NUM=?n] NP
 VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
 VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] Verb[NUM=ing]
+VP[NUM=?n, PERSON=?m] -> Passive[NUM=?n, PERSON=?m]
 
 PP -> Preposition
 PP -> Preposition NP
@@ -151,6 +154,11 @@ Verb[NUM=pl] -> 'have'
 Verb[NUM=sg] -> 'has'
 Verb[NUM=ing] -> 'having'
 Verb[NUM=past] -> 'had'
+Verb[NUM=inf] -> 'allow'
+Verb[NUM=pl] -> 'allow'
+Verb[NUM=sg] -> 'allows'
+Verb[NUM=ing] -> 'allowing'
+Verb[NUM=past] -> 'allowed'
 Verb[NUM=?n, SPECIAL=be, PERSON=?m] -> Be[NUM=?n, PERSON=?m]
 
 Adj -> 'late'
@@ -169,7 +177,7 @@ Be[NUM=pl, PERSON=5] -> 'are'
 Be[NUM=pl, PERSON=6] -> 'are'
 Be[NUM=pl, PERSON=1] -> 'am'
 
-Passive[NUM=sg] -> 'is' Verb[NUM=past]
+Passive[NUM=?n, PERSON=?m] -> Be[NUM=?n, PERSON=?m] Verb[NUM=past]
 
 Pronoun[NUM=sg, PERSON=3] -> 'she'
 Pronoun[NUM=sg, PERSON=3] -> 'he'
@@ -189,7 +197,9 @@ Preposition -> 'from'
 Preposition -> 'to'
 Preposition -> 'at'
 Preposition -> 'of'
+Preposition -> 'in'
 Preposition -> 'on'
+Preposition -> 'inside'
 Preposition -> 'out' 'of'
 
 Aux -> 'does'
@@ -197,6 +207,8 @@ Aux -> Modal
 
 Int -> 'how'
 Int -> 'where'
+
+Neg -> 'no'
 
 IP -> Int Modal[NUM=?n] NP[NUM=?n] VP[NUM=inf]
 IP -> Int Verb[NUM=?n, SPECIAL=be, PERSON=?m] NP[NUM=?n, PERSON=?m] VP[NUM=ing]

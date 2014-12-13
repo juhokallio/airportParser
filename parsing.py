@@ -37,6 +37,8 @@ class TextCollocation(unittest.TestCase):
         "the plane is going to crash",
         "i fly planes",
         "i want to fly",
+        "i want to fly to london",
+        "the flight is late",
     ]
 
     INVALID_SENTENCES = [
@@ -55,6 +57,7 @@ class TextCollocation(unittest.TestCase):
         "there is a bus transitions",
         "i are flying",
         "i could is",
+        "flying scary"
     ]
 
     grammar = data.load('grammar.fcfg')

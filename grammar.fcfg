@@ -11,6 +11,9 @@ NP -> Proper-Noun
 NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
 NP[NUM=?n] -> Nominal[NUM=?n]
 NP[NUM=?n] -> NP[NUM=?n] PP
+NP[NUM=sg] -> AP
+
+AP -> Adj
 
 Nominal[NUM=?n] -> Noun[NUM=?n]
 Nominal[NUM=?n] -> Noun Noun[NUM=?n]
@@ -135,6 +138,8 @@ Verb[NUM=sp] -> 'closes'
 Verb[NUM=ing] -> 'closing'
 Verb[NUM=past] -> 'closed'
 Verb[NUM=?n, SPECIAL=be, PERSON=?m] -> Be[NUM=?n, PERSON=?m]
+
+Adj -> 'late'
 
 Be[NUM=sg, PERSON=3] -> 'is'
 Be[NUM=inf] -> 'be'

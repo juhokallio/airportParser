@@ -52,6 +52,7 @@ class TextCollocation(unittest.TestCase):
         "there are a bus transition",
         "there is a bus transitions",
         "i are flying",
+        "i could is",
     ]
 
     grammar = data.load('grammar.fcfg')

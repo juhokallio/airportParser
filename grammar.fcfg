@@ -1,11 +1,11 @@
-S -> NP[NUM=?n] VP[NUM=?n]
+S -> NP[NUM=?n, PERSON=?m] VP[NUM=?n, PERSON=?m]
 S -> NP[NUM=?n] Passive[NUM=?n]
 S -> Aux NP VP
 S -> VP
 S -> IP
-S -> DummySubject Verb[NUM=?n, SPECIAL=be] NP[NUM=?n]
+S -> DummySubject Verb[NUM=?n, SPECIAL=be, PERSON=3] NP[NUM=?n]
 
-NP[NUM=?n] -> Pronoun[NUM=?n]
+NP[NUM=?n, PERSON=?m] -> Pronoun[NUM=?n, PERSON=?m]
 NP -> Proper-Noun
 NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
 NP[NUM=?n] -> Nominal[NUM=?n]
@@ -31,6 +31,7 @@ VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres] NP
 VP[NUM=?n] -> Verb[NUM=?n] NP
 VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
+VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] Verb[NUM=ing]
 
 PP -> Preposition NP
 PP -> Preposition '_time_'
@@ -52,8 +53,9 @@ Modal[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf, TENSE=pres] 'to'
 
 Verb[NUM=pl] -> 'want'
 Verb[NUM=sg] -> 'wants'
-Verb[NUM=pl] -> 'flight'
-Verb[NUM=sg] -> 'flights'
+Verb[NUM=pl] -> 'fly'
+Verb[NUM=sg] -> 'flies'
+Verb[NUM=ing] -> 'flying'
 Verb[NUM=pl] -> 'sit'
 Verb[NUM=pl] -> 'include'
 Verb[NUM=pl] -> 'prefer'
@@ -73,21 +75,23 @@ Verb[NUM=pl] -> 'depart'
 Verb[NUM=sg] -> 'departs'
 Verb[TENSE=past] -> 'reserved'
 Verb[TENSE=past] -> 'closed'
-Verb[NUM=?n, SPECIAL=be] -> Be[NUM=?n]
+Verb[NUM=?n, SPECIAL=be, PERSON=?m] -> Be[NUM=?n, PERSON=?m]
 
-Be[NUM=sg] -> 'is'
+Be[NUM=sg, PERSON=3] -> 'is'
 Be[NUM=inf] -> 'be'
+Be[NUM=sg, PERSON=2] -> 'are'
 Be[NUM=pl] -> 'are'
+Be[NUM=sg, PERSON=1] -> 'am'
 
 Passive[NUM=sg] -> 'is' Verb[TENSE=past]
 
-Pronoun[NUM=sg] -> 'she'
-Pronoun[NUM=sg] -> 'he'
-Pronoun -> 'i'
-Pronoun -> 'me'
-Pronoun -> 'you'
-Pronoun -> 'we'
-Pronoun -> 'they'
+Pronoun[NUM=sg, PERSON=3] -> 'she'
+Pronoun[NUM=sg, PERSON=3] -> 'he'
+Pronoun[NUM=sg, PERSON=1] -> 'i'
+Pronoun[PERSON=1] -> 'me'
+Pronoun[PERSON=2] -> 'you'
+Pronoun[PERSON=1] -> 'we'
+Pronoun[PERSON=3] -> 'they'
 
 Proper-Noun -> 'atlanta'
 Proper-Noun -> 'toronto'
@@ -101,5 +105,7 @@ Aux -> 'does'
 Aux -> Modal
 
 Int -> 'how'
+Int -> 'where'
 
 IP -> Int Modal[NUM=?n] NP[NUM=?n] VP[NUM=inf]
+IP -> Int Verb[NUM=?n, SPECIAL=be, PERSON=?m] NP[NUM=?n, PERSON=?m] VP[NUM=ing]

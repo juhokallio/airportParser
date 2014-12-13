@@ -39,6 +39,11 @@ class TextCollocation(unittest.TestCase):
         "i want to fly",
         "i want to fly to london",
         "the flight is late",
+        "the weather is bad",
+        "the flight weather is bad",
+        "the air plane is white",
+        "the toilet of the plane is out of use",
+        "the plane has the autopilot on",
     ]
 
     INVALID_SENTENCES = [

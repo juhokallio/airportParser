@@ -36,6 +36,14 @@ Noun[NUM=sg] -> 'transition'
 Noun[NUM=pl] -> 'transitions'
 Noun[NUM=sg] -> 'plane'
 Noun[NUM=pl] -> 'planes'
+Noun[NUM=sg] -> 'weather'
+Noun[NUM=sg] -> 'air'
+Noun[NUM=sg] -> 'toilet'
+Noun[NUM=sg] -> 'toilets'
+Noun[NUM=sg] -> 'use'
+Noun[NUM=pl] -> 'uses'
+Noun[NUM=sg] -> 'autopilot'
+Noun[NUM=pl] -> 'autopilots'
 
 VP[NUM=?n] -> Verb[NUM=?n]
 VP[NUM=?n] -> Modal[NUM=?n] Verb[NUM=inf]
@@ -45,6 +53,7 @@ VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
 VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] Verb[NUM=ing]
 
+PP -> Preposition
 PP -> Preposition NP
 PP -> Preposition VP[NUM=inf]
 PP -> Preposition '_time_'
@@ -137,9 +146,20 @@ Verb[NUM=pl] -> 'close'
 Verb[NUM=sp] -> 'closes'
 Verb[NUM=ing] -> 'closing'
 Verb[NUM=past] -> 'closed'
+Verb[NUM=inf] -> 'have'
+Verb[NUM=pl] -> 'have'
+Verb[NUM=sg] -> 'has'
+Verb[NUM=ing] -> 'having'
+Verb[NUM=past] -> 'had'
 Verb[NUM=?n, SPECIAL=be, PERSON=?m] -> Be[NUM=?n, PERSON=?m]
 
 Adj -> 'late'
+Adj -> 'bad'
+Adj -> 'good'
+Adj -> 'small'
+Adj -> 'big'
+Adj -> 'white'
+Adj -> 'black'
 
 Be[NUM=sg, PERSON=3] -> 'is'
 Be[NUM=inf] -> 'be'
@@ -168,6 +188,9 @@ Proper-Noun -> 'new' 'york'
 Preposition -> 'from'
 Preposition -> 'to'
 Preposition -> 'at'
+Preposition -> 'of'
+Preposition -> 'on'
+Preposition -> 'out' 'of'
 
 Aux -> 'does'
 Aux -> Modal

@@ -2,6 +2,23 @@ from nltk import data
 from nltk.parse.generate import generate
 from nltk import load_parser
 import unittest
+import sys
+
+
+def main(argv):
+    if len(argv) == 1:
+        parser = load_parser('grammar.fcfg')
+        sentence = argv[0]
+        try:
+            parsed = parser.parse(sentence.split())
+            print(next(parsed))
+        except Exception:
+            print("Couldn't parse \"{}\"".format(sentence))
+    else:
+        print("usage: python parsing.py \"sentence to parse\"")
+
+
+if __name__ == "__main__": main(sys.argv[1:])
 
 
 class TextCollocation(unittest.TestCase):
@@ -90,7 +107,3 @@ class TextCollocation(unittest.TestCase):
             self.assert_valid(s)
         for s in self.INVALID_SENTENCES:
             self.assert_invalid(s)
-
-    for sentence in generate(grammar, n=10):
-        if parser.parse_one(sentence):
-            print(' '.join(sentence))

@@ -91,6 +91,6 @@ class TextCollocation(unittest.TestCase):
         for s in self.INVALID_SENTENCES:
             self.assert_invalid(s)
 
-    for sentence in generate(grammar, n=100):
+    for sentence in generate(grammar, n=10):
         if(parser.parse_one(sentence)):
             print(' '.join(sentence))

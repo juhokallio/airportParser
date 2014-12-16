@@ -2,20 +2,22 @@ S -> NP[NUM=?n, PERSON=?m] VP[NUM=?n, PERSON=?m]
 S -> Aux NP VP
 S -> VP
 S -> IP
-S -> DummySubject Verb[NUM=?n, SPECIAL=be, PERSON=3] NP[NUM=?n]
-S -> DummySubject Verb[NUM=?n, SPECIAL=be, PERSON=4] NP[NUM=?n]
+S -> DummySubject VP[NUM=?n, SPECIAL=be, PERSON=3] NP[NUM=?n]
+S -> DummySubject VP[NUM=?n, SPECIAL=be, PERSON=4] NP[NUM=?n]
 
 NP[NUM=?n, PERSON=?m] -> Pronoun[NUM=?n, PERSON=?m]
 NP -> Proper-Noun
 NP[NUM=?n] -> Det[NUM=?n] Nominal[NUM=?n]
 NP[NUM=?n] -> Nominal[NUM=?n]
 NP[NUM=?n] -> NP[NUM=?n] PP
-NP[NUM=sg] -> AP
+NP[NUM=?n] -> AP NP[NUM=?n]
 NP[NUM=?n] -> Neg NP[NUM=?n]
 
 AP -> Adj
+AP -> Pronoun[FORM=gen]
 
 Nominal[NUM=?n] -> Noun[NUM=?n]
+Nominal[NUM=?sg] -> Adj
 Nominal[NUM=?n] -> Noun Noun[NUM=?n]
 
 Noun[NUM=sg] -> 'cat'
@@ -127,6 +129,7 @@ VP[NUM=?n] -> Verb[NUM=?n] NP
 VP[NUM=?n] -> Verb[NUM=?n] PP
 VP[NUM=?n] -> VP[NUM=?n] PP
 VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] Verb[NUM=ing]
+VP[NUM=?n, PERSON=?m] -> Verb[NUM=?n, SPECIAL=be, PERSON=?m] NP Verb[NUM=ing]
 VP[NUM=?n, PERSON=?m] -> Passive[NUM=?n, PERSON=?m]
 
 PP -> Preposition
@@ -260,21 +263,34 @@ Adj -> 'under'
 
 Be[NUM=sg, PERSON=3] -> 'is'
 Be[NUM=inf] -> 'be'
-Be[NUM=sg, PERSON=2] -> 'are'
-Be[NUM=pl, PERSON=4] -> 'are'
-Be[NUM=pl, PERSON=5] -> 'are'
+Be[NUM=non, PERSON=2] -> 'are'
+Be[NUM=non, PERSON=4] -> 'are'
+Be[NUM=non, PERSON=5] -> 'are'
 Be[NUM=pl, PERSON=6] -> 'are'
 Be[NUM=pl, PERSON=1] -> 'am'
 
 Passive[NUM=?n, PERSON=?m] -> Be[NUM=?n, PERSON=?m] Verb[NUM=past]
 
 Pronoun[NUM=sg, PERSON=3] -> 'she'
+Pronoun[PERSON=3, FORM=gen] -> 'her'
 Pronoun[NUM=sg, PERSON=3] -> 'he'
+Pronoun[PERSON=3, FORM=gen] -> 'his'
+Pronoun[NUM=sg, PERSON=3] -> 'it'
+Pronoun[PERSON=3, FORM=gen] -> 'its'
+Pronoun[NUM=sg, PERSON=3] -> 'this'
+Pronoun[NUM=sg, PERSON=3] -> 'that'
 Pronoun[NUM=pl, PERSON=1] -> 'i'
+Pronoun[PERSON=3, FORM=gen] -> 'my'
 Pronoun[PERSON=1] -> 'me'
 Pronoun[PERSON=2] -> 'you'
+Pronoun[PERSON=2, FORM=gen] -> 'your'
+Pronoun[PERSON=4, FORM=gen] -> 'your'
 Pronoun[NUM=pl, PERSON=4] -> 'we'
+Pronoun[PERSON=4, FORM=gen] -> 'our'
 Pronoun[NUM=pl, PERSON=6] -> 'they'
+Pronoun[PERSON=5, FORM=gen] -> 'their'
+Pronoun[NUM=pl, PERSON=6] -> 'these'
+Pronoun[NUM=pl, PERSON=6] -> 'those'
 
 Proper-Noun -> 'atlanta'
 Proper-Noun -> 'toronto'

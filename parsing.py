@@ -1,5 +1,3 @@
-__author__ = 'juka'
-
 from nltk import data
 from nltk.parse.generate import generate
 from nltk import load_parser
@@ -94,5 +92,5 @@ class TextCollocation(unittest.TestCase):
             self.assert_invalid(s)
 
     for sentence in generate(grammar, n=10):
-        if(parser.parse_one(sentence)):
+        if parser.parse_one(sentence):
             print(' '.join(sentence))

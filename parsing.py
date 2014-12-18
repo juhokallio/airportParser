@@ -10,13 +10,15 @@ def main(argv):
         parser = load_parser('grammar.fcfg')
         sentence = argv[0]
         try:
+            sentence = sentence.lower()
             parsed = parser.parse(sentence.split())
             print(next(parsed))
+            print("Sentence parsed succesfully!")
         except Exception:
             print("Couldn't parse \"{}\"".format(sentence))
     else:
         print(data.load('grammar.fcfg'))
-        print("usage: python parsing.py \"sentence to parse\"")
+        print("usage: python parsing.py \"this is your captain speaking\"")
 
 
 if __name__ == "__main__": main(sys.argv[1:])

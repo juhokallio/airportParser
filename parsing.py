@@ -15,6 +15,7 @@ def main(argv):
         except Exception:
             print("Couldn't parse \"{}\"".format(sentence))
     else:
+        print(data.load('grammar.fcfg'))
         print("usage: python parsing.py \"sentence to parse\"")
 
 

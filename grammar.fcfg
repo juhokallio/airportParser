@@ -305,6 +305,7 @@ Preposition -> 'of'
 Preposition -> 'in'
 Preposition -> 'on'
 Preposition -> 'inside'
+Preposition -> 'outside'
 Preposition -> 'out' 'of'
 
 Aux -> 'does'
